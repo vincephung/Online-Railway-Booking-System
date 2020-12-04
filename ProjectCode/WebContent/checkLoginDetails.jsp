@@ -1,18 +1,23 @@
 <%@ page import ="java.sql.*" %>
 <%
-    String userid = request.getParameter("username");   
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection con = DriverManager.getConnection("jdbc:mysql://cs336db.ckzts11k48yi.us-east-2.rds.amazonaws.com:3306/Project","admin", "336Project");
+
+	String username = request.getParameter("username");   
     String pwd = request.getParameter("password");
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://cs336db.ckzts11k48yi.us-east-2.rds.amazonaws.com:3306/Project","admin", "336Project");
-    Statement st = con.createStatement();
-    ResultSet rs;
-    rs = st.executeQuery("select * from customer where username='" + userid + "' and password='" + pwd + "'");
+    
+        
+	String stmt = "select * from users where username= ? and password=?";
+    PreparedStatement ps = con.prepareStatement(stmt);
+    ps.setString(1,username);
+    ps.setString(2,pwd);
+    
+    ResultSet rs = ps.executeQuery();
     if (rs.next()) {
-        session.setAttribute("user", userid);
-        out.println("welcome " + userid);
-        out.println("<a href='logout.jsp'>Log out</a>");
-        response.sendRedirect("success.jsp");
+        session.setAttribute("user", username);
+        session.setAttribute("type",rs.getString("type"));
+        response.sendRedirect("home.jsp");
     } else {
-        out.println("Invalid password <a href='login.jsp'>try again</a>");
+        out.println("Invalid username or password <a href='index.jsp'>try again</a>");
     }
 %>
