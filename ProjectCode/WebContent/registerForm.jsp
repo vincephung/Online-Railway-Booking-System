@@ -41,6 +41,24 @@
 					              <div class="form-label-group">
 					                <input type="password" class="form-control" placeholder="Password" name="password" required>
 					              </div>
+					              <div class="form-label-group">
+					              	<div class="form-check">
+									  <input class="form-check-input" type="checkbox" value="true" name="disabled">
+									  <label class="form-check-label" for="disabled">
+									    Do you have a disability?
+									  </label>
+									</div>
+					               </div>
+					              <div class="form-label-group">
+					              <div class="form-check form-check-inline">
+									  <input class="form-check-input" type="radio" name="customerType" id="customer" value="customer" checked>
+									  <label class="form-check-label" for="customer">Customer</label>
+									</div>
+					              <div class="form-check form-check-inline">
+									  <input class="form-check-input" type="radio" name="customerType" id="customer_rep" value="customer_rep">
+									  <label class="form-check-label" for="customer_rep">Customer Representative</label>
+									</div>
+					              </div>
 					              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
 					                 <a href='index.jsp'>Click here to log in instead.</a>
 					            </form>

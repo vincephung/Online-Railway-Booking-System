@@ -10,8 +10,13 @@
 		int age = Integer.parseInt(request.getParameter("age"));
 	    String username = request.getParameter("username");   
 	    String password = request.getParameter("password");
-	    	    
-	    String stmt = "insert into users (firstname,lastname,email,age,username,password,type) values (?,?,?,?,?,?,?)";
+	    String type = request.getParameter("customerType");
+	    
+	    //handle disabled checkbox
+	    boolean checkDisability = request.getParameter("disabled") != null;
+	    int disabled = checkDisability? 1 : 0;
+	    
+	    String stmt = "insert into users (firstname,lastname,email,age,username,password,type,disabled) values (?,?,?,?,?,?,?,?)";
 	    PreparedStatement ps = con.prepareStatement(stmt);
 	    ps.setString(1,firstname);
 	    ps.setString(2,lastname);
@@ -19,11 +24,12 @@
 	    ps.setInt(4,age);
 	    ps.setString(5,username);
 	    ps.setString(6,password);
-	    ps.setString(7,"customer"); // default registration is set to type customer
+	    ps.setString(7,type); // default registration is set to type customer
+	    ps.setInt(8,disabled);
 	    ps.executeUpdate();
 	    
 	    session.setAttribute("user", username);
-	    session.setAttribute("type","customer");
+	    session.setAttribute("type",type);
 	    response.sendRedirect("home.jsp");
 	}catch(SQLIntegrityConstraintViolationException e){
 		//duplicate username
