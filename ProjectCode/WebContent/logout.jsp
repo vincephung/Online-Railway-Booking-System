@@ -6,6 +6,6 @@
 <%
 session.invalidate();
 //session.getAttribute("user");   //this will throw an error
-response.sendRedirect("logoutMessage.jsp");
+response.sendRedirect("index.jsp");
  
 %>
