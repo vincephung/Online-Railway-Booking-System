@@ -1,11 +1,5 @@
 # OnlineRailwayBookingSystem
 
-CS 336 Principles of Information and Data Management at Rutgers University
-
-Professor Antonio Miranda
-
-Fall 2020
-
 ## Project Description
 The goal of the project was to design and implement a relational database system that supports the operations of an online railway booking system. 
 The booking system allows users to browse/search transit lines, make train reservations over the web, and query the database for available train schedules.
@@ -37,8 +31,8 @@ schedules that have NB as destination)
 
 ## Technologies Used
 * HTML, CSS(Bootstrap) for the user interface,
-* MySQL for the database server
+* MySQL on AWS RDS for creating a relational database in the cloud.
 * Java, Javascript, and JDBC for connectivity between the user interface and database server. 
-* Web server hosted on AWS (Amazon Web Services)
+* Web server hosted on AWS (Amazon Web Services) EC2
 
 Please follow both [Rutgers University's Principles of Academic Integrity](http://academicintegrity.rutgers.edu/) and the [Rutgers Department of Computer Science's Academic Integrity Policy](https://www.cs.rutgers.edu/academics/undergraduate/academic-integrity-policy)
