@@ -33,7 +33,7 @@
 	<div class="container">
 		<h1>
 			Train Schedule #<%=trainID%></h1>
-		<button class="btn btn-link">
+			<button class="btn btn-link">
 			<a href="viewTrainSchedules.jsp">View All Train Schedules</a>
 		</button>
 		<table class="table table-striped table-bordered">
@@ -47,7 +47,7 @@
 				<th>Departure Time</th>
 			</tr>
 			<%
-			    int stopCounter = 1;
+			int stopCounter = 1;
 			//parse out the results
 			while (stopSet.next()) {
 			%>
