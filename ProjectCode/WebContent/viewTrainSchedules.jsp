@@ -6,15 +6,14 @@
 <!--Search for train schedules, click on a schedule to see its route(all stops)-->
 <!DOCTYPE html>
 <html>
-   <head>
-   		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-   		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-      	<link rel="stylesheet" href="styles/trainSchedule.css">
-      	<title>Train Schedules</title>
+    <head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	    <link rel="stylesheet" href="styles/trainSchedule.css">
+	    <title>Train Schedules</title>
    </head>
    <body>
-         <%@ include file="header.jsp" %>
-        
+    <%@ include file="header.jsp" %>   
       <%
       try{
         Class.forName("com.mysql.jdbc.Driver");
@@ -90,7 +89,7 @@
 	   				<select name="origin" id="origin">
 	   					<option value="" disabled selected>Select Train Origin</option>
 						<%while(stationSet.next()){ %>
-								<option><%= stationSet.getString("name") %></option>
+						      <option><%= stationSet.getString("name") %></option>
 						<%} 
 						stationSet.beforeFirst(); //reset stationSet for next loop
 						%>
@@ -98,7 +97,7 @@
 	   				<select name="destination" id="destination">
 	   					<option value="" disabled selected>Select Train Destination</option>
 						<%while(stationSet.next()){ %>
-								<option><%= stationSet.getString("name") %></option>
+						      <option><%= stationSet.getString("name") %></option>
 						<%} %>
 	   				</select>
 	   				<input type="datetime-local" name="date" placeholder="yyyy/mm/dd hh:mm:ss.0"/>
