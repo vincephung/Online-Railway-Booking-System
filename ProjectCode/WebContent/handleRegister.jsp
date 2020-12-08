@@ -34,7 +34,7 @@
 	    
 	    session.setAttribute("user", username);
 	    session.setAttribute("type",type);
-	    response.sendRedirect("home.jsp");
+	    response.sendRedirect("index.jsp");
 	}catch(SQLIntegrityConstraintViolationException e){
 		//duplicate username
 		session.invalidate();
