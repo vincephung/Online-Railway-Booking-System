@@ -5,7 +5,7 @@
 	try{
 		Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://cs336db.ckzts11k48yi.us-east-2.rds.amazonaws.com:3306/Project","admin", "336Project");
-	
+
 		String username = request.getParameter("username");   
 	    String pwd = request.getParameter("password");
 	    
