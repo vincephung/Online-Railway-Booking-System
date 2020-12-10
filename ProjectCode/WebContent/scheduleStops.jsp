@@ -31,11 +31,8 @@
 	%>
 
 	<div class="container">
-		<h1>
-			Train Schedule #<%=trainID%></h1>
-			<button class="btn btn-link">
+		<h1>Train Schedule #<%=trainID%></h1>
 			<a href="viewTrainSchedules.jsp">View All Train Schedules</a>
-		</button>
 		<table class="table table-striped table-bordered">
 			<tr>
 				<th>Stop #</th>

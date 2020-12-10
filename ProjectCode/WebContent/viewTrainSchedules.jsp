@@ -83,7 +83,7 @@
          
    		<div class="container">
 	   		<h1>Train Schedules</h1>
-	   		<button class="btn btn-link"><a href="viewTrainSchedules.jsp">View All Train Schedules</a></button>
+	   		<a href="viewTrainSchedules.jsp">View All Train Schedules</a>
 	   		<div class="scheduleOptions">
 	   			<form method="GET" action="viewTrainSchedules.jsp">
 	   				<select name="origin" id="origin">
