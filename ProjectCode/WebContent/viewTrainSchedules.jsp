@@ -115,10 +115,10 @@
 		   	<!--  Make an HTML table to show the results in: -->
 			<table class="table table-striped table-bordered">
 				<tr>    
+				    <th>Train ID</th>
 					<th>Transit Line Name</th>
 					<th>Origin Station</th>
 					<th>Destination Station</th>
-					<th>Train ID</th>
 					<th>Fare</th>
 					<th>Travel Time</th>
 					<th>Departure Time</th>
@@ -128,10 +128,10 @@
 					//parse out the results
 					while (scheduleSet.next()) { %>
 						<tr>    
-							<td><a href="scheduleStops.jsp?trainID=<%=scheduleSet.getString("trainID")%>"><%= scheduleSet.getString("transitLineName") %></a></td>
+							<td><a href="scheduleStops.jsp?trainID=<%=scheduleSet.getString("trainID")%>"><%= scheduleSet.getString("trainID") %></a></td>
+							<td><%= scheduleSet.getString("transitLineName") %></td>
 							<td><%= scheduleSet.getString("originStation") %></td>
 							<td><%= scheduleSet.getString("destinationStation") %></td>
-							<td><%= scheduleSet.getString("trainID") %></td>
 							<td>$<%= scheduleSet.getString("fixedFare") %></td>
 							<td><%= scheduleSet.getString("travelTime") %></td>
 							<td><%= scheduleSet.getString("departureTime") %></td>
