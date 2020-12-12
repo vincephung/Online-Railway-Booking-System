@@ -21,7 +21,7 @@
       
 		//query database to get origin and destinations for dropdown
 		Statement stationStmt = con.createStatement();
-		ResultSet stationSet = stationStmt.executeQuery("select distinct s.name from station s");
+		ResultSet stationSet = stationStmt.executeQuery("select distinct s.name from station s order by s.name");
 				
 		//User inputted "search" parameters
 		ResultSet scheduleSet;
