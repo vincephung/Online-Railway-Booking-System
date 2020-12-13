@@ -6,22 +6,25 @@
 <!--Search for train schedules, click on a schedule to see its route(all stops)-->
 <!DOCTYPE html>
 <html>
-    <head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	    <link rel="stylesheet" href="styles/trainSchedule.css">
-	    <title>Train Schedules</title>
-   </head>
-   <body>
-    <%@ include file="header.jsp" %>   
-      <%
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="styles/trainSchedule.css">
+<title>Train Schedules</title>
+</head>
+<body>
+	<%@ include file="header.jsp"%>
+	<%
       try{
         Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://cs336db.ckzts11k48yi.us-east-2.rds.amazonaws.com:3306/Project","admin", "336Project");
       
 		//query database to get origin and destinations for dropdown
 		Statement stationStmt = con.createStatement();
-		ResultSet stationSet = stationStmt.executeQuery("select distinct s.name from station s order by s.name");
+		ResultSet stationSet = stationStmt.executeQuery("select distinct s.name from station s");
 				
 		//User inputted "search" parameters
 		ResultSet scheduleSet;
@@ -79,70 +82,71 @@
 			 Statement scheduleStmt = con.createStatement();
 			 scheduleSet = scheduleStmt.executeQuery("select * from train_schedule ts, (select s.stationID, s.name as originStation from station s)s1, (select s.stationID, s.name as destinationStation from station s)s2 where ts.originStationID = s1.stationID and ts.destinationStationID = s2.stationID");
 		 }
-		%> 
-         
-   		<div class="container">
-	   		<h1>Train Schedules</h1>
-	   		<a href="viewTrainSchedules.jsp">View All Train Schedules</a>
-	   		<div class="scheduleOptions">
-	   			<form method="GET" action="viewTrainSchedules.jsp">
-	   				<select name="origin" id="origin">
-	   					<option value="" disabled selected>Select Train Origin</option>
-						<%while(stationSet.next()){ %>
-						      <option><%= stationSet.getString("name") %></option>
-						<%} 
+		%>
+
+	<div class="container">
+		<h1>Train Schedules</h1>
+		<a href="viewTrainSchedules.jsp">View All Train Schedules</a>
+		<div class="scheduleOptions">
+			<form method="GET" action="viewTrainSchedules.jsp">
+				<select name="origin" id="origin">
+					<option value="" disabled selected>Select Train Origin</option>
+					<%while(stationSet.next()){ %>
+					<option><%= stationSet.getString("name") %></option>
+					<%} 
 						stationSet.beforeFirst(); //reset stationSet for next loop
 						%>
-	   				</select>
-	   				<select name="destination" id="destination">
-	   					<option value="" disabled selected>Select Train Destination</option>
-						<%while(stationSet.next()){ %>
-						      <option><%= stationSet.getString("name") %></option>
-						<%} %>
-	   				</select>
-	   				<input type="datetime-local" name="date" placeholder="yyyy/mm/dd hh:mm:ss.0"/>
-	   				<select name="sort" id="sort">
-	   					<option value="" disabled selected>Sort By</option>
-	   					<option value="arrivalTime">Arrival Time</option>
-	   					<option value="departureTime">Departure Time</option>
-	   					<option value="fixedFare">Fare</option>
-	   					<option value="trainID">Train ID</option>
-	   					<option value="travelTime">Travel Time</option>
-	   				</select>
-				    <button class="btn btn-primary" type="submit">Search</button>
-	   			</form>	   			
-	   		</div>	   		
-		   	<!--  Make an HTML table to show the results in: -->
-			<table class="table table-striped table-bordered">
-				<tr>    
-				    <th>Train ID</th>
-					<th>Transit Line Name</th>
-					<th>Origin Station</th>
-					<th>Destination Station</th>
-					<th>Fare</th>
-					<th>Travel Time</th>
-					<th>Departure Time</th>
-					<th>Arrival Time</th>
-				</tr>
-					<%
+				</select> <select name="destination" id="destination">
+					<option value="" disabled selected>Select Train
+						Destination</option>
+					<%while(stationSet.next()){ %>
+					<option><%= stationSet.getString("name") %></option>
+					<%} %>
+				</select> <input type="datetime-local" name="date"
+					placeholder="yyyy/mm/dd hh:mm:ss.0" /> <select name="sort"
+					id="sort">
+					<option value="" disabled selected>Sort By</option>
+					<option value="arrivalTime">Arrival Time</option>
+					<option value="departureTime">Departure Time</option>
+					<option value="fixedFare">Fare</option>
+					<option value="trainID">Train ID</option>
+					<option value="travelTime">Travel Time</option>
+				</select>
+				<button class="btn btn-primary" type="submit">Search</button>
+			</form>
+		</div>
+		<!--  Make an HTML table to show the results in: -->
+		<table class="table table-striped table-bordered">
+			<tr>
+				<th>Transit Line Name</th>
+				<th>Origin Station</th>
+				<th>Destination Station</th>
+				<th>Train ID</th>
+				<th>Fare</th>
+				<th>Travel Time</th>
+				<th>Departure Time</th>
+				<th>Arrival Time</th>
+			</tr>
+			<%
 					//parse out the results
 					while (scheduleSet.next()) { %>
-						<tr>    
-							<td><a href="scheduleStops.jsp?trainID=<%=scheduleSet.getString("trainID")%>"><%= scheduleSet.getString("trainID") %></a></td>
-							<td><%= scheduleSet.getString("transitLineName") %></td>
-							<td><%= scheduleSet.getString("originStation") %></td>
-							<td><%= scheduleSet.getString("destinationStation") %></td>
-							<td>$<%= scheduleSet.getString("fixedFare") %></td>
-							<td><%= scheduleSet.getString("travelTime") %></td>
-							<td><%= scheduleSet.getString("departureTime") %></td>
-							<td><%= scheduleSet.getString("arrivalTime") %></td>
-						</tr>
-					<% } %>
-				</table>		
-   		</div>
-   		<% } catch(Exception e) {
+			<tr>
+				<td><a
+					href="scheduleStops.jsp?trainID=<%=scheduleSet.getString("trainID")%>"><%= scheduleSet.getString("transitLineName") %></a></td>
+				<td><%= scheduleSet.getString("originStation") %></td>
+				<td><%= scheduleSet.getString("destinationStation") %></td>
+				<td><%= scheduleSet.getString("trainID") %></td>
+				<td>$<%= scheduleSet.getString("fixedFare") %></td>
+				<td><%= scheduleSet.getString("travelTime") %></td>
+				<td><%= scheduleSet.getString("departureTime") %></td>
+				<td><%= scheduleSet.getString("arrivalTime") %></td>
+			</tr>
+			<% } %>
+		</table>
+
+	<% } catch(Exception e) {
       			out.println("error"+e); 
       		} %>
-   		
-   </body>
+
+</body>
 </html>

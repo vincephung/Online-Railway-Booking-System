@@ -24,15 +24,16 @@
 		    Connection con = DriverManager.getConnection(
 		    "jdbc:mysql://cs336db.ckzts11k48yi.us-east-2.rds.amazonaws.com:3306/Project", "admin", "336Project");
 		    String trainID = request.getParameter("trainID");
-		    String stmt = "select * from stops st, station s where trainID = ? and st.stationID = s.stationID order by arrivalTime;";
+		    String stmt = "select * from stops st, station s where trainID = ? and st.stationID = s.stationID order by departureTime;";
 		    PreparedStatement ps = con.prepareStatement(stmt);
 		    ps.setString(1, trainID);
 		    ResultSet stopSet = ps.executeQuery();
 	%>
 
 	<div class="container">
-		<h1>Train Schedule #<%=trainID%></h1>
-			<a href="viewTrainSchedules.jsp">View All Train Schedules</a>
+		<h1>
+			Train Schedule #<%=trainID%></h1>
+		<a href="viewTrainSchedules.jsp">View All Train Schedules</a>
 		<table class="table table-striped table-bordered">
 			<tr>
 				<th>Stop #</th>
