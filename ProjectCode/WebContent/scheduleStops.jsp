@@ -24,7 +24,7 @@
 		    Connection con = DriverManager.getConnection(
 		    "jdbc:mysql://cs336db.ckzts11k48yi.us-east-2.rds.amazonaws.com:3306/Project", "admin", "336Project");
 		    String trainID = request.getParameter("trainID");
-		    String stmt = "select * from stops st, station s where trainID = ? and st.stationID = s.stationID order by departureTime;";
+		    String stmt = "select * from stops st, station s where trainID = ? and st.stationID = s.stationID order by arrivalTime;";
 		    PreparedStatement ps = con.prepareStatement(stmt);
 		    ps.setString(1, trainID);
 		    ResultSet stopSet = ps.executeQuery();
