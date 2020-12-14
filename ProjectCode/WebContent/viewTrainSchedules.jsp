@@ -132,12 +132,7 @@
 							<td><%= scheduleSet.getString("transitLineName") %></td>
 							<td><%= scheduleSet.getString("originStation") %></td>
 							<td><%= scheduleSet.getString("destinationStation") %></td>
-<<<<<<< HEAD
-							<td><%= scheduleSet.getString("trainID") %></td>
-							<td><%= scheduleSet.getString("fixedFare") %></td>
-=======
-							<td><%= scheduleSet.getString("fixedFare") %></td>
->>>>>>> a606a897a6300aeee390919dbc12ba903d641f81
+							<td>$<%= scheduleSet.getString("fixedFare") %></td>
 							<td><%= scheduleSet.getString("travelTime") %></td>
 							<td><%= scheduleSet.getString("departureTime") %></td>
 							<td><%= scheduleSet.getString("arrivalTime") %></td>

@@ -36,7 +36,7 @@
 	   		<h3>Select An Option from One of the Drop Down Menus</h3>
 	   		<br>
 	   		<div class="resOptions">
-	   			<form method="POST" action="viewReservations.jsp">
+	   			<form method="POST" action="adminViewReservations.jsp">
 	   				<select name="transline" id="transline" required>
 	   					<option value="" disabled selected>See Reservations By Transit Line</option>
 						<%while(lineSet.next()){ %>
@@ -51,7 +51,7 @@
 	   			<br>
 	   			<br>
    			<div class = "customerOptions">
-	   			<form method="POST" action="viewReservations.jsp">
+	   			<form method="POST" action="adminViewReservations.jsp">
 	   				<select name="customerName" id="customerName" required>
 	   					<option value="" disabled selected>See Reservations By Customer's (Last, First) Name</option>
 						<%while(nameSet.next()){ %>
