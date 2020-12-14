@@ -132,7 +132,7 @@
 							<td><%= scheduleSet.getString("originStation") %></td>
 							<td><%= scheduleSet.getString("destinationStation") %></td>
 							<td><%= scheduleSet.getString("trainID") %></td>
-							<td>$<%= scheduleSet.getString("fixedFare") %></td>
+							<td><%= scheduleSet.getString("fixedFare") %></td>
 							<td><%= scheduleSet.getString("travelTime") %></td>
 							<td><%= scheduleSet.getString("departureTime") %></td>
 							<td><%= scheduleSet.getString("arrivalTime") %></td>

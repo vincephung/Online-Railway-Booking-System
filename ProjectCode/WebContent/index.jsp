@@ -25,8 +25,8 @@
 	    String userType = (String) session.getAttribute("type");
 	%>
 	Welcome
-	<%=session.getAttribute("user")%>
-	! Your account type is a(n)
+	<%=session.getAttribute("user")%>! 
+	Your account type is a(n)
 	<%=userType%>.
 
 	<div class="userOptions">
@@ -48,9 +48,20 @@
 	<%
 	    } else if (userType.equals("admin")) {
 	%>
-
-
-
+	<br>
+	<div class="adminOptions">
+   		Please select your action:
+			<div class="list-group">
+			  <a href="selectCustomerRep.jsp" class="list-group-item list-group-item-action">Add/Edit/Delete Customer Representative</a>
+			  <a href="salesReport.jsp" class="list-group-item list-group-item-action">Obtain Monthly Sales Reports</a>
+			  <a href="listReservationsOptions.jsp" class="list-group-item list-group-item-action">Get List of Reservations by Transit Line/Customer Name</a>
+			  <a href="revPerLine.jsp" class="list-group-item list-group-item-action">List of Revenue Per Transit Line</a>
+			  <a href="revPerCustomer.jsp" class="list-group-item list-group-item-action">List of Revenue Per Customer Name</a>
+			  <a href="bestCustomer.jsp" class="list-group-item list-group-item-action">See Best Customer</a>
+			  <a href="mostActiveLines.jsp" class="list-group-item list-group-item-action">See 5 Most Active Transit Lines</a>
+			</div>
+	</div>
+	
 	<%
 	    }
 	}
