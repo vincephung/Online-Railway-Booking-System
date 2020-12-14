@@ -72,7 +72,6 @@
 				</div>>
 				<%
 		    }
-
 	 } catch(Exception e) {
       			out.println("error"+e); 
       		} %>
