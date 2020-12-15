@@ -39,10 +39,35 @@
 	<%
 	    if (userType.equals("customer")) {
 	%>
+			<div class="userOptions">
+				<form class="form-inline my-2" action="browseQuestions.jsp">
+					<button class="btn btn-primary" type="submit">FAQ</button>
+				</form>
+			</div>
 
 	<%
 	    } else if (userType.equals("customer_rep")) {
-	%>
+	%>		
+			<div class="userOptions">
+				<form class="form-inline my-2" action="searchByStation.jsp">
+					<button class="btn btn-primary" type="submit">Search By Station</button>
+				</form>
+			</div>
+			<div class="userOptions">
+				<form class="form-inline my-2" action="unansweredQuestions.jsp">
+					<button class="btn btn-primary" type="submit">Unanswered Questions</button>
+				</form>
+			</div>
+			<div class="userOptions">
+				<form class="form-inline my-2" action="repReservations.jsp">
+					<button class="btn btn-primary" type="submit">Reservations</button>
+				</form>
+			</div>
+			<div class="userOptions">
+				<form class="form-inline my-2" action="editViewTrainSchedules.jsp">
+					<button class="btn btn-primary" type="submit">View/Edit Train Schedules</button>
+				</form>	
+			</div>
 
 
 	<%
