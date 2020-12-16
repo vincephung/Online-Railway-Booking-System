@@ -25,7 +25,7 @@
 		
 		//check if keyword is given or not
 		if(keyword != null && !keyword.equals("")){
-			String stmt = "Select * from questions q where q.question like '%" + keyword + "%' and q.answer = 'unanswered";
+			String stmt = "Select * from questions q where q.question like '%" + keyword + "%' and q.answer = 'unanswered'";
 			PreparedStatement ps = con.prepareStatement(stmt);
 			questionSet = ps.executeQuery();
 			

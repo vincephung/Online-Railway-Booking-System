@@ -133,9 +133,24 @@
 							<td><%= scheduleSet.getString("destinationStation") %></td>
 							<td><%= scheduleSet.getString("trainID") %></td>
 							<td>$<%= scheduleSet.getString("fixedFare") %></td>
-							<td><%= scheduleSet.getString("travelTime") %></td>
-							<td><%= scheduleSet.getString("departureTime") %></td>
-							<td><%= scheduleSet.getString("arrivalTime") %></td>
+							<td>
+								<form method="POST" action="updateTimes.jsp?trainID=<%=scheduleSet.getString("trainID")%>&transitLineName=<%=scheduleSet.getString("transitLineName")%>&destinationStation=<%=scheduleSet.getString("destinationStation")%>&originStation=<%=scheduleSet.getString("originStation")%>&arrivalTime=<%=scheduleSet.getString("arrivalTime")%>&departureTime=<%=scheduleSet.getString("departureTime")%>">
+									<input type="time" name="travelTime" value="<%=scheduleSet.getString("travelTime")%>" required>
+									<button class="btn btn-primary" type="submit">Update</button>
+								</form>
+							</td>
+							<td>
+								<form method="POST" action="updateTimes.jsp?trainID=<%=scheduleSet.getString("trainID")%>&transitLineName=<%=scheduleSet.getString("transitLineName")%>&destinationStation=<%=scheduleSet.getString("destinationStation")%>&originStation=<%=scheduleSet.getString("originStation")%>&arrivalTime=<%=scheduleSet.getString("arrivalTime")%>&travelTime=<%=scheduleSet.getString("travelTime")%>">
+									<input type="datetime-local" name="departureTime" value="<%=scheduleSet.getString("departureTime")%>" required>
+									<button class="btn btn-primary" type="submit">Update</button>
+								</form>
+							</td>
+							<td>
+								<form method="POST" action="updateTimes.jsp?trainID=<%=scheduleSet.getString("trainID")%>&transitLineName=<%=scheduleSet.getString("transitLineName")%>&destinationStation=<%=scheduleSet.getString("destinationStation")%>&originStation=<%=scheduleSet.getString("originStation")%>&departureTime=<%=scheduleSet.getString("departureTime")%>&travelTime=<%=scheduleSet.getString("travelTime")%>">
+									<input type="datetime-local" name="arrivalTime" value="<%=scheduleSet.getString("arrivalTime")%>" required>
+									<button class="btn btn-primary" type="submit">Update</button>
+								</form>
+							</td>
 						</tr>
 					<% } %>
 				</table>		
