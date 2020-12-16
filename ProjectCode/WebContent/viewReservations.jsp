@@ -48,7 +48,8 @@
   		  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
   		  String date = sdf.format(new Date());
   		String username = (String) session.getAttribute("user");
-  		 String stmt = "select * from reservation where username= ? and depDate >= ?";
+		  
+		String stmt = "select * from reservation where username= ? and depDate >= ?";
   		   PreparedStatement ps = con.prepareStatement(stmt);
   		    ps.setString(1, username);
   		    ps.setString(2, date);
@@ -59,9 +60,10 @@
 				%>
 				<tr>
 				<td><a
-				href="deleteReservation.jsp?reservID=<%=rs.getString("reservation_number")%>"><%= rs.getString("reservation_number") %></a></td>
+				href="deleteReservation.jsp?reservID=<%=rs.getString("reservation_number")%>"> <%= rs.getString("reservation_number") %></a></td>
+
 					<td><%=rs.getString("trip_type")%></td>
-					<td><%=rs.getString("transitLineName")%></td>
+					<td><%=rs.getString("transitLineName")%></td> 
 					<td><%=rs.getString("trainID")%></td>
 					<td><%=rs.getString("originStationID")%></td>
 					<td><%=rs.getString("destinationStationID")%></td>

@@ -125,7 +125,7 @@
 					<th>Arrival Time</th>
 				</tr>
 					<%
-					//parse out the results
+					//parse out  the results
 					while (scheduleSet.next()) { %>
 						<tr>    
 							<td><a href="editSchedule.jsp?trainID=<%=scheduleSet.getString("trainID")%>&transitLineName=<%=scheduleSet.getString("transitLineName")%>&destinationStation=<%=scheduleSet.getString("destinationStation")%>&originStation=<%=scheduleSet.getString("originStation")%>"><%= scheduleSet.getString("transitLineName") %></a></td>

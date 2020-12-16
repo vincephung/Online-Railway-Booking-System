@@ -40,10 +40,10 @@
 
         Class.forName("com.mysql.jdbc.Driver");
 		Connection con = DriverManager.getConnection("jdbc:mysql://cs336db.ckzts11k48yi.us-east-2.rds.amazonaws.com:3306/Project","admin", "336Project");
-		  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		  String date = sdf.format(new Date());
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sdf.format(new Date());
 		String username = (String) session.getAttribute("user");
-		 String stmt = "select * from reservation where username= ? and depDate < ?";
+		String stmt = "select * from reservation where username= ? and depDate < ?";
 		   PreparedStatement ps = con.prepareStatement(stmt);
 		    ps.setString(1, username);
 		    ps.setString(2, date);
@@ -63,6 +63,7 @@
 				</tr>
 				</table>
 				</div>>
+				
 				<%
 		    }
 
