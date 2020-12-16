@@ -43,6 +43,9 @@
 			<button class="btn btn-primary" type="submit">View Past Reservation
 				Schedules</button>
 		</form>
+		<form class="form-inline my-2" action="makeReservation.jsp">
+			<button class="btn btn-primary" type="submit">Make a Reservation</button>
+		</form>
 	</div>
 
 	<!-- Different functionalities based on account type -->
