@@ -1,0 +1,110 @@
+[33mcommit 291d07f1154677b3314d6c83aee7a87f4e2cb76f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Thu Dec 10 12:15:26 2020 -0500
+
+    fixed view train schedule link
+
+[33mcommit bac3f85269e0b3cba8c5cb0971ed7a762d184fc1[m
+Merge: 789ad9e ecd2516
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Tue Dec 8 14:25:27 2020 -0500
+
+    Merge pull request #5 from vincephung/spacing
+    
+    Spacing
+
+[33mcommit ecd2516608d31e41aece942672dad2bf1328e67e[m[33m ([m[1;31morigin/spacing[m[33m)[m
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Tue Dec 8 14:24:15 2020 -0500
+
+    fixed spacing/indents
+
+[33mcommit 1e93a67affbee73fcb039796d273202c9835e09d[m
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Tue Dec 8 14:20:12 2020 -0500
+
+    fixed spacing and indent problems
+
+[33mcommit 789ad9ecac7f2458b462129b84c99a58f8bd5fea[m
+Merge: 161bf96 798a271
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Tue Dec 8 13:46:53 2020 -0500
+
+    Merge pull request #4 from vincephung/browse-search-functionality
+    
+    fixed handleRegister
+
+[33mcommit 798a271415f55bc8d29cddbc0171833b7c447467[m[33m ([m[1;31morigin/browse-search-functionality[m[33m)[m
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Tue Dec 8 13:45:18 2020 -0500
+
+    fixed handleRegister
+
+[33mcommit 161bf96221baa5842687ec3beb175e15f5a5eed9[m
+Merge: 8e8b8d8 3ea0bd1
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Mon Dec 7 18:21:33 2020 -0500
+
+    Merge pull request #3 from vincephung/browse-search-functionality
+    
+    Added browsing and search functionality for train schedules
+
+[33mcommit 3ea0bd1ffaba673ffecc9f8e96c2320b90917587[m
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Mon Dec 7 18:20:58 2020 -0500
+
+    Added browsing and search functionality for train schedules
+
+[33mcommit 8e8b8d88f59c96a732ab720a3e01b422dd0f0fad[m
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Thu Dec 3 23:22:23 2020 -0500
+
+    Update README.md
+
+[33mcommit 04ed5f66691d6f2c23d1d01f176a486195fecc19[m
+Merge: 06c9896 c4ecab2
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Thu Dec 3 22:18:37 2020 -0500
+
+    Merge pull request #2 from vincephung/account-functions
+    
+    added disability checkbox and usertype to registration form
+
+[33mcommit c4ecab255a92c5298101af832b489846906c876c[m[33m ([m[1;31morigin/account-functions[m[33m)[m
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Thu Dec 3 22:17:43 2020 -0500
+
+    added disability checkbox and usertype to registration form
+
+[33mcommit 06c9896d64d4ca341ebf8da67db028c704c57a15[m
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Thu Dec 3 20:29:43 2020 -0500
+
+    Create README.md
+
+[33mcommit e4da58b090dc7d461a4528f04ab4ff867b5ff934[m
+Merge: 24d0114 803455d
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Thu Dec 3 19:07:21 2020 -0500
+
+    Merge pull request #1 from vincephung/account-functions
+    
+    Account functions
+
+[33mcommit 803455dc574145d1fd3ecfee05fae484a38fd1da[m
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Thu Dec 3 19:05:27 2020 -0500
+
+    added header to register page
+
+[33mcommit d320b86b659d4980ecd3adb812c0f2c68e75fbea[m
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Thu Dec 3 19:02:52 2020 -0500
+
+    created account functionality, homepage and deleted unecessary files
+
+[33mcommit 24d01148a59f26c4e4ed78bd7a77b64d3b0f3733[m
+Author: Vincent Phung <vincentphung43@yahoo.com>
+Date:   Wed Dec 2 23:14:20 2020 -0500
+
+    initial commit
