@@ -74,25 +74,7 @@
 				</div>>
 				<%
 			}
-			while(rs.next())
-		    {
-				%>
-				<tr>
-				<td><a
-				href="makeReservation.jsp?trainID=<%=rs.getString("train_id")%>"> <%= rs.getString("train_id") %></a></td>
 
-					<td><%=rs.getString("trip_type")%></td>
-					<td><%=rs.getString("transitLineName")%></td> 
-					<td><%=rs.getString("trainID")%></td>
-					<td><%=rs.getString("originStationID")%></td>
-					<td><%=rs.getString("destinationStationID")%></td>
-					<td><%=rs.getString("depDate")%></td>
-					<td><%=rs.getString("total_fare")%></td>
-				</tr>
-				</table>
-				</div>>
-				<%
-			}
 			
 	 } catch(Exception e) {
       			out.println("error"+e); 

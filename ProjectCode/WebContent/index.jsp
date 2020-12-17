@@ -43,7 +43,7 @@
 			<button class="btn btn-primary" type="submit">View Past Reservation
 				Schedules</button>
 		</form>
-		<form class="form-inline my-2" action="makeReservation.jsp">
+		<form class="form-inline my-2" action="reservationForm.jsp">
 			<button class="btn btn-primary" type="submit">Make a Reservation</button>
 		</form>
 	</div>
