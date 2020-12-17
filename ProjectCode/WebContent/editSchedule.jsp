@@ -27,7 +27,7 @@
 		    String trainID = request.getParameter("trainID");
 		    String originStation = request.getParameter("originStation");
 		    String destinationStation = request.getParameter("destinationStation");
-		    String stmt = "select * from stops st, station s where trainID = ? and st.stationID = s.stationID order by departureTime;";
+		    String stmt = "select * from stops st, station s where trainID = ? and st.stationID = s.stationID order by arrivalTime;";
 		    PreparedStatement ps = con.prepareStatement(stmt);
 		    ps.setString(1, trainID);
 		    ResultSet stopSet = ps.executeQuery();
@@ -51,6 +51,20 @@
 			//parse out the results
 			while (stopSet.next()) {
 			%>
+			 <%
+			 
+              //converts sql date time to java date-time format
+                String getArrTime = stopSet.getString("arrivalTime");
+                String arrTime = getArrTime.replace(" ","T");
+                System.out.println(stopSet.getString("departureTime"));
+                String getDepTime = stopSet.getString("departureTime");
+                String depTime = null;
+                if(getDepTime != null){
+                    depTime = getDepTime.replace(" ","T");
+                }
+               
+                %>
+			
 			<tr>
 				<td><%=stopCounter%></td>
 				<td><%=stopSet.getString("name")%></td>
@@ -59,13 +73,13 @@
 				<td>$<%=stopSet.getString("fare")%></td>
 				<td>
 					<form method="POST" action="updateSchedule.jsp?trainID=<%=trainID%>&transitLineName=<%=transitLineName%>&destinationStation=<%=destinationStation%>&originStation=<%=originStation%>&departureTime=<%=stopSet.getString("departureTime")%>&name=<%=stopSet.getString("name")%>">
-						<input type="datetime-local" name="arrivalTime" value="<%=stopSet.getString("arrivalTime")%>" required>
+						<input type="datetime-local" name="arrivalTime" value="<%=arrTime%>" required>
 						<button class="btn btn-primary" type="submit">Update</button>
 					</form>
 				</td>
 				<td>
 					<form method="POST" action="updateSchedule.jsp?trainID=<%=trainID%>&transitLineName=<%=transitLineName%>&destinationStation=<%=destinationStation%>&originStation=<%=originStation%>&arrivalTime=<%=stopSet.getString("arrivalTime")%>&name=<%=stopSet.getString("name")%>">
-						<input type="datetime-local" name="departureTime" value="<%=stopSet.getString("departureTime")%>" required>
+						<input type="datetime-local" name="departureTime" value="<%=depTime%>" required>
 						<button class="btn btn-primary" type="submit">Update</button>
 					</form>
 				</td>
