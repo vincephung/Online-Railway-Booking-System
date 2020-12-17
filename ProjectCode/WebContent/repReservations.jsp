@@ -33,7 +33,7 @@
 		//The query works by selecting ALL train schedules and filtering them based on the search parameters
 		if(transitLine != null || date != null || sort != null){
 			String transitString = (transitLine != null) ? "and r.transitLineName = " + "'" + transitLine + "'" : "";
-			String dateString = (!date.equals("")) ? "and r.depDate = " + "'" + date + "'": "";
+			String dateString = (!date.equals("")) ? "and r.arrDate = " + "'" + date + "'": "";
 			/*Only add query if parameter is not null. For example if origin = "Absecon" then query will be where t1.origin = "Absecon", 
 			If user does not enter a destination, then there will be no destination query  */
 			/*String originString = (station != null) ? "t1.originStation =" + "'"+ originStation + "'" : "";
