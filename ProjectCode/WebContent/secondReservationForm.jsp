@@ -24,13 +24,17 @@
 		
 		//query stations for that schedule
 		Statement stationStmt = con.createStatement();
-		ResultSet stationSet = stationStmt.executeQuery("select distinct sta.name from station sta, stops sto where sto.trainID = " + scheduleNum);	
+        ResultSet stationSet = stationStmt.executeQuery("select distinct sta.name from station sta, stops sto where sta.stationID = sto.stationID and sto.trainID = " + scheduleNum);   
 		
 	%>
          
    		<div class="container">
 	   		<h1>Reservation Details</h1>
 			<form method="POST" action="handleReservation.jsp">
+			<div class="trainNumber">
+			     <label for="scheduleNumber">Schedule Number:</label>
+			     <input type="text" name="scheduleNumber" value=<%=scheduleNum %> disabled></input>
+			 </div>
 				<select name="originStationName" id="originStationName">
 	   				<option  value="" disabled selected>Select Origin Station</option>
 						<%while(stationSet.next()){ %>
@@ -47,32 +51,34 @@
 						stationSet.beforeFirst(); //reset stationSet for next loop
 						%>
 	   			</select>
-	   			<div>Please specify if the reservation is being made for a customer meeting one of the following criteria:</div>
-	   			<div class="form-label-group">
-                	<div class="form-check">
-                		<input class="form-check-input" id="disabledCheck" type="checkbox" name="disabled">									  
-                        <label class="form-check-label" for="disabled">Disabled</label>
+	   			<div>Please specify if the reservation is being made for a customer meeting one of the following criteria:</div>                
+                 <div class="form-label-group">
+                    <div class="form-check form-check-inline">
+                                 <input class="form-check-input" type="radio" name="discount_type" id="child" value="child">
+                                 <label class="form-check-label" for="child">Child</label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" id="childCheck" type="checkbox" name="child">									  
-                        <label class="form-check-label" for="disabled">Child</label>
-                    </div>
-                    <div class="form-check">
-                                            <input class="form-check-input" id="disabledCheck" type="checkbox" name="senior">									  
-                        <label class="form-check-label" for="disabled">Senior</label>
-                    </div>
+                   <div class="form-check form-check-inline">
+                           <input class="form-check-input" type="radio" name="discount_type" id="senior" value="senior">
+                           <label class="form-check-label" for="senior">Senior</label>
+                   </div>
+                   <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="discount_type" id="disabled" value="disabled">
+                          <label class="form-check-label" for="disabled">Disabled</label>
+                  </div>            
                 </div>
-                <div>Please specify the type of trip you are making this reservation for.</div>
+              
+                <div>Please specify the type of trip you are making this reservation for.</div>                
                 <div class="form-label-group">
-                	<div class="form-check">
-                		<input class="form-check-input" id="directCheck" type="checkbox" name="direct">									  
-                        <label class="form-check-label" for="disabled">Direct Trip</label>
+                    <div class="form-check form-check-inline">
+                                 <input class="form-check-input" type="radio" name="trip_type" id="direct" value="direct" checked>
+                                 <label class="form-check-label" for="direct">Direct Trip</label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" id="roundCheck" type="checkbox" name="round">									  
-                        <label class="form-check-label" for="disabled">Round Trip</label>
-                    </div>
+                   <div class="form-check form-check-inline">
+                           <input class="form-check-input" type="radio" name="trip_type" id="round" value="round">
+                           <label class="form-check-label" for="round">Round Trip</label>
+                   </div>           
                 </div>
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Submit</button>
 			</form>	
    		</div>
    		<% } catch(Exception e) {
