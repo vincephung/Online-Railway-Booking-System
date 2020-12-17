@@ -24,11 +24,7 @@
 		
 		//query stations for that schedule
 		Statement stationStmt = con.createStatement();
-<<<<<<< HEAD
         ResultSet stationSet = stationStmt.executeQuery("select distinct sta.name from station sta, stops sto where sta.stationID = sto.stationID and sto.trainID = " + scheduleNum);   
-=======
-		ResultSet stationSet = stationStmt.executeQuery("select distinct sta.name from station sta, stops sto where sta.stationID = sto.stationID and sto.trainID = " + scheduleNum);	
->>>>>>> e83feafbdddf550b562ae19e88e540afd7f7b66a
 		
 	%>
          
