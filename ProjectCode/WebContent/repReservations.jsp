@@ -80,16 +80,6 @@
 						%>
 	   				</select>
 	   				<input type="datetime-local" name="date" placeholder="yyyy/mm/dd hh:mm:ss.0"/>
-	   				<select name="sort" id="sort">
-	   					<option value="" disabled selected>Sort By</option>
-	   					<option value="firstname">First Name</option>
-	   					<option value="lastname">Last Name</option>
-	   					<option value="email">Email</option>
-	   					<option value="username">Username</option>
-	   					<option value="password">Password</option>
-	   					<option value="age">Age</option>
-	   					<option value="ssn">SSN</option>
-	   				</select>
 				    <button class="btn btn-primary" type="submit">Search</button>
 	   			</form>	   			
 	   		</div>	   		
