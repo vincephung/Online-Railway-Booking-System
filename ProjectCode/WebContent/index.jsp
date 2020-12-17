@@ -44,10 +44,7 @@
 				Schedules</button>
 		</form>
 		<form class="form-inline my-2" action="schedulesReservations.jsp">
-			<button class="btn btn-primary" type="submit">Make a Reservation</button>
-		</form>
-		      <form class="form-inline my-2" action="schedulesReservations.jsp">
-            <button class="btn btn-primary" type="submit">Schedule Reservations</button>
+            <button class="btn btn-primary" type="submit">Make A Reservation</button>
         </form>
 	</div>
 
