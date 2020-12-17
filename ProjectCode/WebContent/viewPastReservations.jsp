@@ -30,6 +30,8 @@
 				<th>originStationID</th>
 				<th>destinationStationID</th>
 				<th>Departure Time</th>
+				<th>arrDate</th>
+				<th>reserveDate</th>
 				<th>Total Fare</th>
 			</tr>
 	<%
@@ -48,6 +50,7 @@
 		    ps.setString(1, username);
 		    ps.setString(2, date);
 		    ResultSet rs = ps.executeQuery();
+		    
 		    while(rs.next())
 		    {
 				%>
@@ -59,14 +62,13 @@
 					<td><%=rs.getString("originStationID")%></td>
 					<td><%=rs.getString("destinationStationID")%></td>
 					<td><%=rs.getString("depDate")%></td>
+					<td><%=rs.getString("arrDate")%></td>
+					<td><%=rs.getString("reserveDate")%></td>
 					<td><%=rs.getString("total_fare")%></td>
 				</tr>
-				</table>
-				</div>>
 				
 				<%
 		    }
-
 	 } catch(Exception e) {
       			out.println("error"+e); 
       		} %>

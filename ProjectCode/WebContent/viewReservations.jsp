@@ -70,13 +70,10 @@
 					<td><%=rs.getString("depDate")%></td>
 					<td><%=rs.getString("total_fare")%></td>
 				</tr>
-				</table>
-				</div>>
 				<%
 			}
 
-			
-	 } catch(Exception e) {
+		    } catch(Exception e) {
       			out.println("error"+e); 
       		} %>
 
