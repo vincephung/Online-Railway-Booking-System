@@ -24,7 +24,7 @@
 		ResultSet resSet;
 		
 		if((searchBy = request.getParameter("transline")) != null){
-			resSet = resStmt.executeQuery("select transitLineName, trip_type, depDate, total_fare, reservation_number, username, "+
+			resSet = resStmt.executeQuery("select transitLineName, trip_type, depDate, arrDate, reserveDate, total_fare, reservation_number, username, "+
 					"originStationID, destinationStationID, trainID "+
 					"from reservation where transitLineName = '"+ searchBy + "' ORDER BY depDate ASC");
 		%>
@@ -38,6 +38,8 @@
 					<th>Trip Type</th>
 					<th>Total Fare</th>
 					<th>Departure Date & Time (YYYY-MM-DD hh:mm:ss)</th>
+					<th>Arrival Date & Time (YYYY-MM-DD hh:mm:ss)</th>
+					<th>Reservation Made At (YYYY-MM-DD hh:mm:ss)</th>
 					<th>Reservation Number</th>
 					<th>Train ID</th>
 					<th>Origin Station ID</th>
@@ -52,6 +54,8 @@
 							<td><%= resSet.getString("trip_type") %></td>
 							<td><%= resSet.getString("total_fare") %></td>
 							<td><%= resSet.getString("depDate") %></td>
+							<td><%= resSet.getString("arrDate") %></td>
+							<td><%= resSet.getString("reserveDate") %></td>
 							<td><%= resSet.getString("reservation_number") %></td>
 							<td><%= resSet.getString("trainID") %></td>
 							<td><%= resSet.getString("originStationID") %></td>
@@ -92,6 +96,8 @@
 						<th>Total Fare</th>
 						<th>Transit Line Name</th>
 						<th>Departure Date & Time (YYYY-MM-DD hh:mm:ss)</th>
+						<th>Arrival Date & Time (YYYY-MM-DD hh:mm:ss)</th>
+						<th>Reservation Made At (YYYY-MM-DD hh:mm:ss)</th>
 						<th>Reservation Number</th>
 						<th>Train ID</th>
 						<th>Origin Station ID</th>
@@ -108,6 +114,8 @@
 								<td><%= resSet.getString("total_fare") %></td>
 								<td><%= resSet.getString("transitLineName") %></td>
 								<td><%= resSet.getString("depDate") %></td>
+								<td><%= resSet.getString("arrDate") %></td>
+								<td><%= resSet.getString("reserveDate") %></td>
 								<td><%= resSet.getString("reservation_number") %></td>
 								<td><%= resSet.getString("trainID") %></td>
 								<td><%= resSet.getString("originStationID") %></td>
