@@ -1,5 +1,5 @@
 <%@ page import="java.sql.*"%>
-<%
+<%@ page import = "java.util.Random" %>
     /*Makes reservation from user input in reservation form*/
 	try {
 	    Class.forName("com.mysql.jdbc.Driver");
@@ -13,8 +13,30 @@
 	    String depDate = request.getParameter("depDate");
 		boolean roundtripCheck = request.getParameter("roundtrip") != null;
 		boolean discountCheck = request.getParameter("discount") != null;
-	    int rtrip = roundtripCheck ? 1 : 0;
-		int dcheck= discountCheck ? 1:0;
+		if (roundtripCheck){
+			String trip_type= "roundtrip";
+		}
+		else{
+			String trip_type= "normal";
+		}
+		if (discountCheck){
+
+		}
+		int i = rand.nextInt(100000); 
+		String reservation_number=Integer.toString(i);
+		String stmt = "insert into reservation (originStationID,destinationStationID,transitLineName,trainID,depDate,trip_type,total_fare,reservation_number) values (?,?,?,?,?,?,?,?)";
+		PreparedStatement ps = con.prepareStatement(stmt);
+		ps.setString(1, originStationID);
+	    ps.setString(2, destinationStationID);
+	    ps.setString(3, transitLineName);
+	    ps.setString(4, trainID);
+	    ps.setString(5, depDate);
+		ps.setString(6, trip_type);
+		ps.setString(7, total_fare);
+		ps.setString(8, reservation_number);
+		ps.executeUpdate();
+		out.println("Congrats!, your reservation number is: "+ reservation_number);
+		response.sendRedirect("index.jsp");
 	    
 	} catch (SQLException e) {
 	    // Other SQL Exception

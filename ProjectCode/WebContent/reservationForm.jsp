@@ -41,7 +41,7 @@
                             <div class="form-check">
                                <input class="form-check-input" id="roundtripCheck" type="checkbox" value="true" name="roundtrip">									  
                                <label class="form-check-label" for="roundtrip">
-                               Do you want a round-trip?
+                              Round-trip?
                                </label>
                             </div>
                             </div>
@@ -49,7 +49,7 @@
                                 <div class="form-check">
                                    <input class="form-check-input" id="discountCheck" type="checkbox" value="true" name="discount">									  
                                    <label class="form-check-label" for="discount">
-                                   Are you eligible for a child/senior/disabled discount?
+                                   Eligible for a child/senior/disabled discount?
                                    </label>
                                 </div>
                                 </div>
