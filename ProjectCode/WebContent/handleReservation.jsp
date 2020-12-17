@@ -9,8 +9,7 @@
         Connection con = DriverManager.getConnection(
         "jdbc:mysql://cs336db.ckzts11k48yi.us-east-2.rds.amazonaws.com:3306/Project", "admin", "336Project");
     
-        String trainID = request.getParameter("scheduleNumber"); 
-        System.out.println(trainID);
+        String trainID = (String) session.getAttribute("scheduleNum");
         String discount_type = request.getParameter("discount_type");
         String trip_type = request.getParameter("trip_type");
         String username = (String)session.getAttribute("user");
@@ -75,10 +74,11 @@
 
         ps.executeUpdate();
 
+        session.removeAttribute("scheduleNum");
         response.sendRedirect("index.jsp");
     } catch (SQLException e) {
         //SQL Exception
-        session.invalidate();
+        //session.invalidate();
         out.println(e);
     }
 %>

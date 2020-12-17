@@ -25,15 +25,15 @@
 		//query stations for that schedule
 		Statement stationStmt = con.createStatement();
         ResultSet stationSet = stationStmt.executeQuery("select distinct sta.name from station sta, stops sto where sta.stationID = sto.stationID and sto.trainID = " + scheduleNum);   
-		
+        session.setAttribute("scheduleNum", scheduleNum);
 	%>
          
    		<div class="container">
 	   		<h1>Reservation Details</h1>
-			<form method="POST" action="handleReservation.jsp">
+			<form action="handleReservation.jsp" method="POST">
 			<div class="trainNumber">
 			     <label for="scheduleNumber">Schedule Number:</label>
-			     <input type="text" name="scheduleNumber" value=<%=scheduleNum %> disabled></input>
+			     <%=scheduleNum %>
 			 </div>
 				<select name="originStationName" id="originStationName">
 	   				<option  value="" disabled selected>Select Origin Station</option>
