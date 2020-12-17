@@ -25,14 +25,13 @@
 		ResultSet stationSet = stationStmt.executeQuery("select distinct s.name from station s order by s.name");
 		
 		//query for schedule numbers
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String curDate = sdf.format(new Date());
 		Statement nameStmt = con.createStatement();
-		ResultSet nameSet = nameStmt.executeQuery("select t.trainID from train_schedule t");
+		ResultSet nameSet = nameStmt.executeQuery("select t.trainID from train_schedule t where t.departureTime >" + "'" +curDate +"'");
 		//User inputted "search" parameters
 		ResultSet scheduleSet;
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String curDate = sdf.format(new Date());
-        System.out.println(curDate);
 		Statement scheduleStmt = con.createStatement();
 		scheduleSet = scheduleStmt.executeQuery("select * from train_schedule ts, (select s.stationID, s.name as originStation from station s)s1, (select s.stationID, s.name as destinationStation from station s)s2 where ts.originStationID = s1.stationID and ts.destinationStationID = s2.stationID and ts.departureTime >" + "'" +curDate +"'");
 		
