@@ -74,6 +74,7 @@
 					<td><%=rs.getString("arrDate")%></td>
 					<td><%=rs.getString("reserveDate")%></td>
 					<td><%=rs.getString("total_fare")%></td>
+					
 				</tr>
 				<%
 			}

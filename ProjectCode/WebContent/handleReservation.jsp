@@ -43,6 +43,7 @@
 
         }
         
+        System.out.println(total_fare);
         if(trip_type.equals("round")){
             total_fare *= 2;
         }
@@ -57,6 +58,9 @@
 	            total_fare *= .5;
 	        }
         }
+        
+        System.out.println(total_fare);
+
 
         String stmt = "insert into reservation (trip_type,reserveDate,total_fare,reservation_number,username,originStationID,destinationStationID,trainID,transitLineName,depDate,arrDate) values (?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = con.prepareStatement(stmt);

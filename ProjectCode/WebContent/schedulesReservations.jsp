@@ -2,7 +2,8 @@
 	pageEncoding="ISO-8859-1" import="com.cs336.pkg.*"%>
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*"%>
-
+<%@ page import = "java.util.Date" %>
+<%@ page import = "java.text.SimpleDateFormat" %>
 <!--Search for train schedules, click on a schedule to see its route(all stops)-->
 <!DOCTYPE html>
 <html>
@@ -29,9 +30,12 @@
 		//User inputted "search" parameters
 		ResultSet scheduleSet;
 		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String curDate = sdf.format(new Date());
+        System.out.println(curDate);
 		Statement scheduleStmt = con.createStatement();
-		scheduleSet = scheduleStmt.executeQuery("select * from train_schedule ts, (select s.stationID, s.name as originStation from station s)s1, (select s.stationID, s.name as destinationStation from station s)s2 where ts.originStationID = s1.stationID and ts.destinationStationID = s2.stationID");
-		 
+		scheduleSet = scheduleStmt.executeQuery("select * from train_schedule ts, (select s.stationID, s.name as originStation from station s)s1, (select s.stationID, s.name as destinationStation from station s)s2 where ts.originStationID = s1.stationID and ts.destinationStationID = s2.stationID and ts.departureTime >" + "'" +curDate +"'");
+		
 		%> 
          
    		<div class="container">
