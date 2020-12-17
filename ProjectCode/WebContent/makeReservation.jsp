@@ -6,8 +6,8 @@
 	    Connection con = DriverManager.getConnection(
 	    "jdbc:mysql://cs336db.ckzts11k48yi.us-east-2.rds.amazonaws.com:3306/Project", "admin", "336Project");
 	
-	    String originStationID = request.getParameter("originStationID");
-	    String destinationStationID = request.getParameter("destinationStationID");
+	    int originStationID = request.getParameter("originStationID");
+	    int destinationStationID = request.getParameter("destinationStationID");
 	    String transitLineName = request.getParameter("transitLineName");
 	    String trainID = request.getParameter("trainID");
 	    String depDate = request.getParameter("depDate");
@@ -15,14 +15,14 @@
 		boolean childCheck = request.getParameter("child") != null;
 		boolean seniorCheck = request.getParameter("senior") != null;
 		boolean disabledCheck = request.getParameter("disabled") != null;
+		
 
-		PreparedStatement ps = con.prepareStatement(stmt);
-		ps.setString(1, trainID);
-		ResultSet stopSet = ps.executeQuery();
+		PreparedStatement ps = con.prepareStatement(setter);
+		ResultSet stopSet=  ps.executeQuery("select * from train_schedule where trainID = " + "'" + trainID + "'");
 		while (stopSet.next()) {
-			String fare= stopSet.getString("fare");
+			int fare= stopSet.getInt("fixedfare");
 		}
-		int price = Integer.parseInt(fare);
+		int price = fare;
 
 		if (roundtripCheck){
 			String trip_type= "roundtrip";
@@ -32,31 +32,31 @@
 			String trip_type= "normal";
 		}
 		if (childcheck){
-			price=price-2;
+			price=price*.90;
 		}
 		if(seniorCheck){
-			price=price-3;
+			price=price*.85;
 		}
 		if(disabledCheck){
-			price=price-4;
+			price=price*.8;
 		}
-		String total_fare= Integer.toString(fare);
 
 		int i = rand.nextInt(100000); 
-		String reservation_number=Integer.toString(i);
+		int reservation_number=i;
 		
 		String stmt = "insert into reservation (originStationID,destinationStationID,transitLineName,trainID,depDate,trip_type,total_fare,reservation_number) values (?,?,?,?,?,?,?,?)";
-		PreparedStatement ps = con.prepareStatement(stmt);
-		ps.setString(1, originStationID);
-	    ps.setString(2, destinationStationID);
-	    ps.setString(3, transitLineName);
-	    ps.setString(4, trainID);
-	    ps.setString(5, depDate);
-		ps.setString(6, trip_type);
-		ps.setString(7, total_fare);
-		ps.setString(8, reservation_number);
-		ps.executeUpdate();
-		out.println("Congrats!, your reservation number is: "+ reservation_number);
+		PreparedStatement pos = con.prepareStatement(stmt);
+		pos.setInt(1, originStationID);
+	    pos.setInt(2, destinationStationID);
+	    pos.setString(3, transitLineName);
+	    pos.setString(4, trainID);
+	    pos.setString(5, depDate);
+		pos.setString(6, trip_type);
+		pos.setInt(7, total_fare);
+		pos.setInt(8, reservation_number);
+		pos.executeUpdate();
+		out.println("Congrats!, your reservation number is: "+ reservation_number +"!");
+		out.println("Click <a href='index.jsp'>here</a> to return to main page");")
 		response.sendRedirect("index.jsp");
 	    
 	} catch (SQLException e) {
