@@ -13,17 +13,30 @@
 	    String depDate = request.getParameter("depDate");
 		boolean roundtripCheck = request.getParameter("roundtrip") != null;
 		boolean discountCheck = request.getParameter("discount") != null;
+		
+		PreparedStatement ps = con.prepareStatement(stmt);
+		ps.setString(1, trainID);
+		ResultSet stopSet = ps.executeQuery();
+		while (stopSet.next()) {
+			String fare= stopSet.getString("fare");
+		}
+		int price = Integer.parseInt(fare);
+
 		if (roundtripCheck){
 			String trip_type= "roundtrip";
+			price= price*2;
 		}
 		else{
 			String trip_type= "normal";
 		}
 		if (discountCheck){
-
+			price=price-5;
 		}
+		String total_fare= Integer.toString(fare);
+
 		int i = rand.nextInt(100000); 
 		String reservation_number=Integer.toString(i);
+		
 		String stmt = "insert into reservation (originStationID,destinationStationID,transitLineName,trainID,depDate,trip_type,total_fare,reservation_number) values (?,?,?,?,?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(stmt);
 		ps.setString(1, originStationID);
