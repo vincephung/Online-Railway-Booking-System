@@ -12,7 +12,7 @@
       <title>Make a Reservation</title>
    </head>
    <body>
-      <%@ include file="makeReservation.jsp" %>
+      <%@ include file="header.jsp" %>
       <div class="registerContainer">
          <h1>Registration Form</h1>
          <div class="container">
