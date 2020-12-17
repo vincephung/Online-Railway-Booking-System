@@ -17,8 +17,8 @@
 	
 	    //if checkbox is checked, set disability to 1 (true)
 	    boolean checkDisability = request.getParameter("disabled") != null;
-	    int disabled = checkDisability ? 1 : 0;
-	
+		int disabled = checkDisability ? 1 : 0;
+		
 	    String stmt = "insert into users (firstname,lastname,email,age,username,password,type,disabled,ssn) values (?,?,?,?,?,?,?,?,?)";
 	    PreparedStatement ps = con.prepareStatement(stmt);
 	    ps.setString(1, firstname);

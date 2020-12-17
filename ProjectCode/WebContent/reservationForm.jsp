@@ -47,12 +47,28 @@
                             </div>
                             <div class="form-label-group">
                                 <div class="form-check">
-                                   <input class="form-check-input" id="discountCheck" type="checkbox" value="true" name="discount">									  
-                                   <label class="form-check-label" for="discount">
-                                   Eligible for a child/senior/disabled discount?
+                                   <input class="form-check-input" id="childCheck" type="checkbox" value="true" name="discount">									  
+                                   <label class="form-check-label" for="child">
+                                   Child Ticket?
                                    </label>
                                 </div>
                                 </div>
+                                <div class="form-label-group">
+                                 <div class="form-check">
+                                    <input class="form-check-input" id="seniorCheck" type="checkbox" value="true" name="discount">									  
+                                    <label class="form-check-label" for="senior">
+                                    Senior Ticket?
+                                    </label>
+                                 </div>
+                                 </div>
+                                 <div class="form-label-group">
+                                    <div class="form-check">
+                                       <input class="form-check-input" id="disabilityCheck" type="checkbox" value="true" name="discount">									  
+                                       <label class="form-check-label" for="disability">
+                                       Person with disability Ticket?
+                                       </label>
+                                    </div>
+                                    </div>
                          </div>
                          <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Make Reservation</button>
                         </form>

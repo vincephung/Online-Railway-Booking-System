@@ -12,8 +12,10 @@
 	    String trainID = request.getParameter("trainID");
 	    String depDate = request.getParameter("depDate");
 		boolean roundtripCheck = request.getParameter("roundtrip") != null;
-		boolean discountCheck = request.getParameter("discount") != null;
-		
+		boolean childCheck = request.getParameter("child") != null;
+		boolean seniorCheck = request.getParameter("senior") != null;
+		boolean disabledCheck = request.getParameter("disabled") != null;
+
 		PreparedStatement ps = con.prepareStatement(stmt);
 		ps.setString(1, trainID);
 		ResultSet stopSet = ps.executeQuery();
@@ -29,8 +31,14 @@
 		else{
 			String trip_type= "normal";
 		}
-		if (discountCheck){
-			price=price-5;
+		if (childcheck){
+			price=price-2;
+		}
+		if(seniorCheck){
+			price=price-3;
+		}
+		if(disabledCheck){
+			price=price-4;
 		}
 		String total_fare= Integer.toString(fare);
 
