@@ -31,10 +31,12 @@
 					<th>Reservation Number (Click to Delete)</th>
 				<th>Type #</th>
 				<th>transitLineName</th>
-				<th>trainID</th>
+				<th>Train ID</th>
 				<th>originStationID</th>
 				<th>destinationStationID</th>
 				<th>Departure Time</th>
+				<th>Arrive Date</th>
+				<th>Reservation Date</th>
 				<th>Total Fare</th>
 			</tr>
 	<%
@@ -62,12 +64,15 @@
 				<td><a
 				href="deleteReservation.jsp?reservID=<%=rs.getString("reservation_number")%>"> <%= rs.getString("reservation_number") %></a></td>
 
+				
 					<td><%=rs.getString("trip_type")%></td>
-					<td><%=rs.getString("transitLineName")%></td> 
+					<td><%=rs.getString("transitLineName")%></td>
 					<td><%=rs.getString("trainID")%></td>
 					<td><%=rs.getString("originStationID")%></td>
 					<td><%=rs.getString("destinationStationID")%></td>
 					<td><%=rs.getString("depDate")%></td>
+					<td><%=rs.getString("arrDate")%></td>
+					<td><%=rs.getString("reserveDate")%></td>
 					<td><%=rs.getString("total_fare")%></td>
 				</tr>
 				<%

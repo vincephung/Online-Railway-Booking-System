@@ -26,12 +26,12 @@
 				<th>Reservation Number</th>
 				<th>Type #</th>
 				<th>transitLineName</th>
-				<th>trainID</th>
+				<th>Train ID</th>
 				<th>originStationID</th>
 				<th>destinationStationID</th>
 				<th>Departure Time</th>
-				<th>arrDate</th>
-				<th>reserveDate</th>
+				<th>Arrive Date</th>
+				<th>Reservation Date</th>
 				<th>Total Fare</th>
 			</tr>
 	<%
