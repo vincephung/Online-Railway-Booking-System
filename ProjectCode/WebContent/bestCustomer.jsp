@@ -22,12 +22,12 @@
       
 		
 		Statement bestStmt = con.createStatement();
-		ResultSet bestSet = bestStmt.executeQuery("select u.firstname, u.lastname, max(t1.total) revenue "+
+		ResultSet bestSet = bestStmt.executeQuery("select u.firstname, u.lastname, u.username, t1.total revenue "+
 				"from users u, "+
 				"(select username, sum(total_fare) total "+
 				"from reservation "+
-				"group by username) t1 "+
-				"where t1.username = u.username && u.username = u.lastname && u.username = u.firstname");
+				"group by username order by total desc limit 1) t1 "+
+				"where t1.username = u.username");
 		 
 		%> 
          
@@ -36,7 +36,7 @@
 		   	<!--  The result, in string format -->
 		   	<br>
 	   		<%bestSet.next();%>
-			<h3>Congratulations to <%=bestSet.getString("firstname")%> <%=bestSet.getString("lastname")%>!
+			<h3>Congratulations to <%=bestSet.getString("firstname")%> <%=bestSet.getString("lastname")%>, username: <%=bestSet.getString("username")%> !
 			This customer spent $<%=bestSet.getString("revenue")%>.</h3>    
    		</div>
    		<% } catch(Exception e) {
