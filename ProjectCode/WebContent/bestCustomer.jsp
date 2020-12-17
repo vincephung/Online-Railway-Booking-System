@@ -27,7 +27,7 @@
 				"(select username, sum(total_fare) total "+
 				"from reservation "+
 				"group by username) t1 "+
-				"where t1.username = u.username");
+				"where t1.username = u.username && u.username = u.lastname && u.username = u.firstname");
 		 
 		%> 
          
