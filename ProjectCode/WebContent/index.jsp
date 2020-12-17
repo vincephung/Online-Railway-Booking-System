@@ -35,17 +35,6 @@
 			<button class="btn btn-primary" type="submit">View Train
 				Schedules</button>
 		</form>
-		<form class="form-inline my-2" action="viewReservations.jsp">
-			<button class="btn btn-primary" type="submit">View Current Reservation
-				Schedules</button>
-		</form>
-		<form class="form-inline my-2" action="viewPastReservations.jsp">
-			<button class="btn btn-primary" type="submit">View Past Reservation
-				Schedules</button>
-		</form>
-		<form class="form-inline my-2" action="schedulesReservations.jsp">
-            <button class="btn btn-primary" type="submit">Make A Reservation</button>
-        </form>
 	</div>
 
 	<!-- Different functionalities based on account type -->
@@ -53,6 +42,15 @@
 	    if (userType.equals("customer")) {
 	%>
 			<div class="userOptions">
+				<form class="form-inline my-2" action="viewReservations.jsp">
+					<button class="btn btn-primary" type="submit">View Current Reservation Schedules</button>
+				</form>
+				<form class="form-inline my-2" action="viewPastReservations.jsp">
+					<button class="btn btn-primary" type="submit">View Past Reservation Schedules</button>
+				</form>
+				<form class="form-inline my-2" action="schedulesReservations.jsp">
+            		<button class="btn btn-primary" type="submit">Make A Reservation</button>
+        		</form>
 				<form class="form-inline my-2" action="browseQuestions.jsp">
 					<button class="btn btn-primary" type="submit">FAQ</button>
 				</form>

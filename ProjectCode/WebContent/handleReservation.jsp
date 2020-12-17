@@ -75,7 +75,7 @@
         ps.executeUpdate();
 
         session.removeAttribute("scheduleNum");
-        response.sendRedirect("index.jsp");
+	    out.println("Reservation made! Please click <a href='index.jsp'>here</a> to return to the customer action page");
     } catch (SQLException e) {
         //SQL Exception
         //session.invalidate();
